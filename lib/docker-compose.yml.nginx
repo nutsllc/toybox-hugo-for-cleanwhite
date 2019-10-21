@@ -1,0 +1,12 @@
+hugo-contents-cleanwhite:
+    image: nutsllc/toybox-nginx:1.15.7-alpine
+    volumes:
+        - ../public:/usr/share/nginx/html
+    environment:
+        - TOYBOX_UID=1314
+        - TOYBOX_GID=1314
+        #- VIRTUAL_HOST=nuts-toybox.com
+        #- LETSENCRYPT_HOST=nuts-toybox.com
+        #- LETSENCRYPT_EMAIL=dev@nutsllc.jp
+    ports:
+        - "80"
