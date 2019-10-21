@@ -3,10 +3,10 @@ hugo-contents-cleanwhite:
     volumes:
         - ../public:/usr/share/nginx/html
     environment:
-        - TOYBOX_UID=1314
-        - TOYBOX_GID=1314
+        #- TOYBOX_UID=1000
+        #- TOYBOX_GID=1000
         #- VIRTUAL_HOST=nuts-toybox.com
         #- LETSENCRYPT_HOST=nuts-toybox.com
         #- LETSENCRYPT_EMAIL=dev@nutsllc.jp
     ports:
-        - "80"
+        - "8080:80"
