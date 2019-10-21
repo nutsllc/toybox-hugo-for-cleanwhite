@@ -2,7 +2,7 @@ hugo-contents-cleanwhite:
     image: nutsllc/toybox-nginx:1.15.7-alpine
     volumes:
         - ../public:/usr/share/nginx/html
-    environment:
+    #environment:
         #- TOYBOX_UID=1000
         #- TOYBOX_GID=1000
         #- VIRTUAL_HOST=nuts-toybox.com
