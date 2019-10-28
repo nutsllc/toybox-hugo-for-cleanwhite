@@ -2,7 +2,7 @@
 SELF=$(cd $(dirname $0); pwd)
 REPO_HOME=${SELF}/../
 
-THEME_USER='zhaohuabing'
+THEME_VENDOR='zhaohuabing'
 THEME_NAME='hugo-theme-cleanwhite'
 
 function _init() {
@@ -11,11 +11,10 @@ function _init() {
 
     echo ">> download ${THEME_NAME} theme"
     cd site && git init && cd themes
-    git submodule add https://github.com/${THEME_USER}/${THEME_NAME}
+    git submodule add https://github.com/${THEME_VENDOR}/${THEME_NAME}
 
     echo ">> setup ${THEME_NAME} theme"
     cp -r ${REPO_HOME}/site/themes/${THEME_NAME}/exampleSite/* ${REPO_HOME}/site
-    sed -i -e "s/\"dot\"/\"${THEME_NAME}\"/" ${REPO_HOME}/site/config.toml
     cp -r ${REPO_HOME}/lib ${REPO_HOME}/site/bin
 }
 
