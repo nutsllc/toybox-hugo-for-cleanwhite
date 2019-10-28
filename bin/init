@@ -15,12 +15,17 @@ function _init() {
 
     echo ">> setup ${THEME_NAME} theme"
     cp -r ${REPO_HOME}/site/themes/${THEME_NAME}/exampleSite/* ${REPO_HOME}/site
+    rm ${REPO_HOME}/site/deploy.sh ${REPO_HOME}/site/build_algolia_index.sh
     cp -r ${REPO_HOME}/lib ${REPO_HOME}/site/bin
 }
 
 _init && {
     echo "complete!"
-    echo "run site/bin/docker-compose.yml and open localhost:1313 on your browser."
+    echo "run command bellow to start Hugo server."
+    echo "-----------------------------------------"
+    echo "$ cd site/bin && docker-compose up -d"
+    echo "-----------------------------------------"
+    echo "open http://localhost:1313 on your browser."
     echo "enjoy :-)"
 }
 
