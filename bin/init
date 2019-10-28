@@ -2,7 +2,7 @@
 SELF=$(cd $(dirname $0); pwd)
 REPO_HOME=${SELF}/../
 
-THEME_USER='zhaohuabing'
+THEME_VENDOR='zhaohuabing'
 THEME_NAME='hugo-theme-cleanwhite'
 
 function _init() {
@@ -11,17 +11,21 @@ function _init() {
 
     echo ">> download ${THEME_NAME} theme"
     cd site && git init && cd themes
-    git submodule add https://github.com/${THEME_USER}/${THEME_NAME}
+    git submodule add https://github.com/${THEME_VENDOR}/${THEME_NAME}
 
     echo ">> setup ${THEME_NAME} theme"
     cp -r ${REPO_HOME}/site/themes/${THEME_NAME}/exampleSite/* ${REPO_HOME}/site
-    sed -i -e "s/\"dot\"/\"${THEME_NAME}\"/" ${REPO_HOME}/site/config.toml
+    rm ${REPO_HOME}/site/deploy.sh ${REPO_HOME}/site/build_algolia_index.sh
     cp -r ${REPO_HOME}/lib ${REPO_HOME}/site/bin
 }
 
 _init && {
     echo "complete!"
-    echo "run site/bin/docker-compose.yml and open localhost:1313 on your browser."
+    echo "run command bellow to start Hugo server."
+    echo "-----------------------------------------"
+    echo "$ cd site/bin && docker-compose up -d"
+    echo "-----------------------------------------"
+    echo "open http://localhost:1313 on your browser."
     echo "enjoy :-)"
 }
 
